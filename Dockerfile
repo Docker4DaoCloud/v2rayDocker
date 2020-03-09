@@ -7,7 +7,7 @@ ARG version="0.11.1"
 ARG plugins="git,cors,realip,expires,cache"
 
 
-RUN go get -v github.com/abiosoft/parent
+RUN GOPROXY="https://goproxy.io" GO111MODULE=on go get -v github.com/abiosoft/parent
 RUN VERSION=${version} PLUGINS=${plugins} ENABLE_TELEMETRY=false /bin/sh /usr/bin/builder.sh
 
 #
